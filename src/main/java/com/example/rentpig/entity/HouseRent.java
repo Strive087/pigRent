@@ -6,7 +6,13 @@ public class HouseRent {
 
     private String housename;
 
-    private String housephoto;
+    private String housephoto0;
+
+    private String housephoto1;
+
+    private String housephoto2;
+
+    private String housephoto3;
 
     private String housedescription;
 
@@ -26,7 +32,7 @@ public class HouseRent {
 
     private double houselatitude;
 
-    private double houselongitude;
+    private double houselongtitude;
 
     private long userid;
 
@@ -52,12 +58,36 @@ public class HouseRent {
         this.housename = housename;
     }
 
-    public String getHousephoto() {
-        return housephoto;
+    public String getHousephoto0() {
+        return housephoto0;
     }
 
-    public void setHousephoto(String housephoto) {
-        this.housephoto = housephoto;
+    public void setHousephoto0(String housephoto0) {
+        this.housephoto0 = housephoto0;
+    }
+
+    public String getHousephoto1() {
+        return housephoto1;
+    }
+
+    public void setHousephoto1(String housephoto1) {
+        this.housephoto1 = housephoto1;
+    }
+
+    public String getHousephoto2() {
+        return housephoto2;
+    }
+
+    public void setHousephoto2(String housephoto2) {
+        this.housephoto2 = housephoto2;
+    }
+
+    public String getHousephoto3() {
+        return housephoto3;
+    }
+
+    public void setHousephoto3(String housephoto3) {
+        this.housephoto3 = housephoto3;
     }
 
     public String getHouseprovince() {
@@ -124,12 +154,12 @@ public class HouseRent {
         this.houselatitude = houselatitude;
     }
 
-    public double getHouselongitude() {
-        return houselongitude;
+    public double getHouselongtitude() {
+        return houselongtitude;
     }
 
-    public void setHouselongitude(double houselongitude) {
-        this.houselongitude = houselongitude;
+    public void setHouselongtitude(double houselongtitude) {
+        this.houselongtitude = houselongtitude;
     }
 
     public String getHousedescription() {
