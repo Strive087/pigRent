@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -27,6 +28,34 @@ public class HouseRentController {
     @RequestMapping("/getHouseRentByHouseid")
     public HouseRent getHouseRentByHouseid(long houseid){
         return houseRentService.getHouseRentByHouseid(houseid);
+    }
+
+    @RequestMapping("/getAllHouseRentByOption")
+    public List<HouseRent> getAllHouseRentByOption(int lowprice,int upprice , int lowarea , int uparea ){
+        List<HouseRent> houseRentList = houseRentService.getAllHouseRent();
+        List<HouseRent> houseRentList1 = new ArrayList<>();
+        for (HouseRent houseRent : houseRentList){
+            if (lowprice != upprice){
+                if(houseRent.getHouseprice() > lowprice && houseRent.getHouseprice() < upprice){
+                    if(lowarea != uparea){
+                        if(Integer.parseInt(houseRent.getHousearea()) > lowarea && Integer.parseInt(houseRent.getHousearea()) < uparea){
+                            houseRentList1.add(houseRent);
+                        }
+                    }else{
+                        houseRentList1.add(houseRent);
+                    }
+                }
+            }else{
+                if(lowarea != uparea){
+                    if(Integer.parseInt(houseRent.getHousearea()) > lowarea && Integer.parseInt(houseRent.getHousearea()) < uparea){
+                        houseRentList1.add(houseRent);
+                    }
+                }else{
+                   return houseRentList;
+                }
+            }
+        }
+        return houseRentList1;
     }
 
     @RequestMapping("/addHouseRent")

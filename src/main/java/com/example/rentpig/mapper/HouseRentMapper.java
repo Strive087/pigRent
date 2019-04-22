@@ -24,12 +24,12 @@ public interface HouseRentMapper {
     @Options(useGeneratedKeys = true, keyProperty = "houseid", keyColumn = "houseid")
     void addHouseRent(HouseRent houseRent);
 
-    @Delete("delete * from houserent where houseid=#{houseid}")
+    @Delete("delete from houserent where houseid=#{houseid}")
     void deleteHouseRent(long id);
 
     @Update("update houserent set housename=#{housename},housephoto0=#{housephoto0},housephoto1=#{housephoto1}," +
             "housephoto2=#{housephoto2},housephoto3=#{housephoto3},housedescription=#{housedescription}," +
-            "houseprovince=#{houseprovince}，housecity=#{housecity}，housedistrict=#{housedistrict},housestreet=#{housestreet}," +
+            "houseprovince=#{houseprovince},housecity=#{housecity},housedistrict=#{housedistrict},housestreet=#{housestreet}," +
             "houseshape=#{houseshape},housearea=#{housearea},houseprice=#{houseprice},houselatitude=#{houselatitude}," +
             "houselongtitude=#{houselongtitude} where houseid=#{houseid}")
     void updateHouseRent(HouseRent houseRent);
