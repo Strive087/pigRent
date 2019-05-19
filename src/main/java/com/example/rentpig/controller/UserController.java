@@ -45,4 +45,8 @@ public class UserController {
         userService.updateUser(user);
     }
 
+    @RequestMapping("/deleteuser")
+    public void  deleteUser(String usermail){
+        userService.deleteUser(usermail);
+    }
 }

@@ -21,4 +21,7 @@ public interface UserMapper {
     @Update("update user set username=#{username},usersex=#{usersex},userpassword=#{userpassword}," +
             "userphone=#{userphone},usermail=#{usermail} where userid=#{userid}")
     void updateUser(User user);
+
+    @Delete("delete from user where usermail=#{usermail}")
+    void  deleteUser(String usermail);
 }

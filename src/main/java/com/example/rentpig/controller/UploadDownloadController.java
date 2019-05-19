@@ -20,7 +20,7 @@ import java.io.*;
 @RestController
 public class UploadDownloadController {
     private static final Logger logger = LoggerFactory.getLogger(UploadDownloadController.class);
-    private String uploadDir="E:\\IDEA_workspaces\\rentpig\\src\\main\\resources\\photo\\";
+    private String uploadDir="/home/photo/";
  
     @RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
     public JSONObject uploadImage(@RequestParam(value = "file") MultipartFile file,String usermail) throws RuntimeException {
@@ -37,7 +37,7 @@ public class UploadDownloadController {
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
         logger.info("上传的后缀名为：" + suffixName);
         // 文件上传后的路径
-        String filePath = uploadDir+usermail+"\\";
+        String filePath = uploadDir+usermail+"/";
         // 解决中文问题，liunx下中文路径，图片显示问题
         // fileName = UUID.randomUUID() + suffixName;
         File dest = new File(filePath + fileName);
@@ -63,7 +63,7 @@ public class UploadDownloadController {
     @RequestMapping(value = "/downloadImage",method = RequestMethod.GET)
     public String downloadImage(String imageName,String usermail,HttpServletRequest request, HttpServletResponse response) {
         logger.info("the imageName is : "+imageName);
-        String fileUrl = uploadDir+usermail+"\\"+imageName;
+        String fileUrl = uploadDir+usermail+"/"+imageName;
         if (fileUrl != null) {
             //当前是从该工程的WEB-INF//File//下获取文件(该目录可以在下面一行代码配置)然后下载到C:\\users\\downloads即本机的默认下载的目录
            /* String realPath = request.getServletContext().getRealPath(

@@ -30,4 +30,9 @@ public class UserService {
     public void updateUser(User user){
         userMapper.updateUser(user);
     }
+
+    @Transactional
+    public void  deleteUser(String usermail){
+        userMapper.deleteUser(usermail);
+    }
 }
