@@ -22,6 +22,10 @@ public class HouseOrderService {
         return houseOrderMapper.getHouseOrderByBuyerid(buyerid);
     }
 
+    public List<HouseOrder> getAllOrder(){
+        return houseOrderMapper.getAllOrder();
+    }
+
     @Transactional
     public void addHouseOrder(HouseOrder houseOrder){
         houseOrderMapper.addHouseOrder(houseOrder);

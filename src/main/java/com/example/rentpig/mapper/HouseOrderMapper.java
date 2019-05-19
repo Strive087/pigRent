@@ -13,6 +13,9 @@ public interface HouseOrderMapper {
     @Select("select * from houseorder where buyerid=#{buyerid}")
     List<HouseOrder> getHouseOrderByBuyerid(long buyerid);
 
+    @Select("select * from houseorder")
+    List<HouseOrder> getAllOrder();
+
     @Insert("insert into houseorder(orderdate,orderprice,orderday,orderstatu,houseid,housename,houseprovince," +
             "housecity,housedistrict,housestreet,sellerid,sellerphone,sellername,buyerid,buyerphone,buyername)" +
             " values(#{orderdate},#{orderprice},#{orderday},#{orderstatu},#{houseid},#{housename},#{houseprovince}," +

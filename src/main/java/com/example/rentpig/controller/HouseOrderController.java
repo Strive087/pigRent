@@ -25,6 +25,11 @@ public class HouseOrderController {
         return houseOrderService.getHouseOrderByBuyerid(buyerid);
     }
 
+    @RequestMapping("/getAllOrder")
+    public List<HouseOrder> getAllOrder(){
+        return houseOrderService.getAllOrder();
+    }
+
     @RequestMapping("/addHouseOrder")
     public void addHouseOrder(HouseOrder houseOrder){
         houseOrderService.addHouseOrder(houseOrder);

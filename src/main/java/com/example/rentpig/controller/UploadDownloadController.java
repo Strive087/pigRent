@@ -23,7 +23,7 @@ public class UploadDownloadController {
     private String uploadDir="/home/photo/";
  
     @RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
-    public JSONObject uploadImage(@RequestParam(value = "file") MultipartFile file,String usermail) throws RuntimeException {
+    public JSONObject uploadImage(@RequestParam(value = "file") MultipartFile file,String userid) throws RuntimeException {
         JSONObject object = new JSONObject();
         if (file.isEmpty()) {
             object.put("failed","文件不能为空");
@@ -37,7 +37,7 @@ public class UploadDownloadController {
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
         logger.info("上传的后缀名为：" + suffixName);
         // 文件上传后的路径
-        String filePath = uploadDir+usermail+"/";
+        String filePath = uploadDir+userid+"/";
         // 解决中文问题，liunx下中文路径，图片显示问题
         // fileName = UUID.randomUUID() + suffixName;
         File dest = new File(filePath + fileName);
@@ -61,9 +61,9 @@ public class UploadDownloadController {
  
     //文件下载相关代码
     @RequestMapping(value = "/downloadImage",method = RequestMethod.GET)
-    public String downloadImage(String imageName,String usermail,HttpServletRequest request, HttpServletResponse response) {
+    public String downloadImage(String imageName,String userid,HttpServletRequest request, HttpServletResponse response) {
         logger.info("the imageName is : "+imageName);
-        String fileUrl = uploadDir+usermail+"/"+imageName;
+        String fileUrl = uploadDir+userid+"/"+imageName;
         if (fileUrl != null) {
             //当前是从该工程的WEB-INF//File//下获取文件(该目录可以在下面一行代码配置)然后下载到C:\\users\\downloads即本机的默认下载的目录
            /* String realPath = request.getServletContext().getRealPath(
